@@ -194,7 +194,7 @@
 				}
 
 				if (tim && tim.length === 1) {
-					tim = '0' + time;
+					tim = '0' + tim;
 				}
 				if (mini && mini.length === 1) {
 					mini = '0' + mini;
