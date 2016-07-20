@@ -193,6 +193,13 @@
 					meri = ele_next.find(".mer_tx input").val();
 				}
 
+				if (tim && tim.length === 1) {
+					tim = '0' + time;
+				}
+				if (mini && mini.length === 1) {
+					mini = '0' + mini;
+				}
+
 				let hour = parseInt(tim);
         let minute = parseInt(mini);
         if (hour * 60 + minute > settings.max_hour_value * 60 + 59) {
