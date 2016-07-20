@@ -200,8 +200,8 @@
 					mini = '0' + mini;
 				}
 
-				let hour = parseInt(tim);
-        let minute = parseInt(mini);
+				var hour = parseInt(tim);
+        var minute = parseInt(mini);
         if (hour * 60 + minute > settings.max_hour_value * 60 + 59) {
           tim = settings.max_hour_value.toString();
           mini = '59';
