@@ -192,6 +192,13 @@
 				if(settings.show_meridian){
 					meri = ele_next.find(".mer_tx input").val();
 				}
+
+				let hour = parseInt(tim);
+        let minute = parseInt(mini);
+        if (hour * 60 + minute > settings.max_hour_value * 60 + 59) {
+          tim = settings.max_hour_value.toString();
+          mini = '59';
+        }
 				
 				if (tim.length !== 0 && mini.length !== 0 && (!settings.show_meridian || meri.length !== 0)) {
 					// store the value so we can set the initial value
