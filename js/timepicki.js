@@ -25,7 +25,9 @@
 			overflow_minutes: false,
 			disable_keyboard_mobile: false,
 			reset: false,
-			on_change: null
+			on_change: null,
+			clearOnClick: false,
+			clearOnDoubleClick: false
 		};
 
 		var settings = $.extend({}, defaults, options);
@@ -99,6 +101,16 @@
 					}
 
 			});
+			if (settings.clearOnClick) {
+					$(".timepicki-input").click( function(keyevent){
+							$(this).val('');
+					});
+			}
+			if (settings.clearOnDoubleClick) {
+					$(".timepicki-input").dblclick( function(keyevent){
+							$(this).val('');
+					});
+			}
 
 			// open or close time picker when clicking
 			$(document).on("click", function(event) {
