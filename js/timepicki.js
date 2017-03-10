@@ -1,4 +1,4 @@
-/* 
+/*
  * Author: @senthil2rajan
  * plugin: timepicker
  * website: senthilraj.github.io/Timepicki
@@ -77,25 +77,25 @@
 			var ele_next = $(this).next(".timepicker_wrap");
 			var ele_next_all_child = ele_next.find("div");
 			var inputs = ele_par.find('input');
-			
+
 			$('.reset_time').on("click", function(event) {
 				$(this).parents('.time_pick').find('.text').val("");
 				close_timepicki();
-			});		
+			});
 			$(".timepicki-input").keydown( function(keyevent){
 					var len = $(this).val().length;
 
 					// Allow: backspace, delete, tab, escape, enter and .
 					if ($.inArray(keyevent.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
 					     // Allow: Ctrl+A
-					    (keyevent.keyCode == 65 && keyevent.ctrlKey === true) || 
+					    (keyevent.keyCode == 65 && keyevent.ctrlKey === true) ||
 					     // Allow: home, end, left, right
 					    (keyevent.keyCode >= 35 && keyevent.keyCode <= 39)) {
 						 // let it happen, don't do anything
 						 return;
 					}
 					// Ensure that it is a number and stop the keypress
-					if ((keyevent.shiftKey || (keyevent.keyCode < 48 || keyevent.keyCode > 57)) && 
+					if ((keyevent.shiftKey || (keyevent.keyCode < 48 || keyevent.keyCode > 57)) &&
 					(keyevent.keyCode < 96 || keyevent.keyCode > 105) || len==2 ) {
 					    keyevent.preventDefault();
 					}
@@ -119,7 +119,7 @@
 						set_value(event, !is_element_in_timepicki($(event.target)));
 					} else {
 						var ele_lef =  0;
-						
+
 						ele_next.css({
 							"top": ele_hei + "px",
 							"left": ele_lef + "px"
@@ -206,13 +206,19 @@
           tim = settings.max_hour_value.toString();
           mini = '59';
         }
-				
+
+        if (minute > 59) {
+        	mini = '59';
+        } else if (minute < 0) {
+        	mini = '00';
+        }
+
 				if (tim.length !== 0 && mini.length !== 0 && (!settings.show_meridian || meri.length !== 0)) {
 					// store the value so we can set the initial value
 					// next time the picker is opened
 					ele.attr('data-timepicki-tim', tim);
 					ele.attr('data-timepicki-mini', mini);
-					
+
 					if(settings.show_meridian){
 						ele.attr('data-timepicki-meri', meri);
 						// set the formatted value
